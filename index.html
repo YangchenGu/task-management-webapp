@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Management App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Assignment 4</p>
+        <h1>Task Management App</h1>
+        <p class="subtitle">Add, update, delete, filter, and track tasks in vanilla JavaScript.</p>
+      </div>
+      <button id="themeToggle" class="theme-btn">🌙 Dark</button>
+    </header>
+
+    <main class="layout">
+      <section class="panel card">
+        <h2>New Task</h2>
+        <form id="taskForm" class="task-form">
+          <div class="field-grid">
+            <div class="field">
+              <label for="title">Title *</label>
+              <input id="title" name="title" type="text" placeholder="Task title" required />
+            </div>
+            <div class="field">
+              <label for="category">Category *</label>
+              <select id="category" name="category" required>
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="Urgent">Urgent</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="description">Description *</label>
+            <textarea id="description" name="description" rows="3" placeholder="Describe this task..."></textarea>
+          </div>
+          <div class="field">
+            <label for="priority">Priority *</label>
+            <select id="priority" name="priority" required>
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="submitBtn">Add Task</button>
+            <button type="button" id="resetBtn" class="secondary">Clear</button>
+          </div>
+          <div id="error" class="error" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <section class="panel card">
+        <div class="toolbar-row">
+          <div>
+            <h2>Task List</h2>
+            <p class="subtitle-small">Filter, search, sort, and manage tasks instantly.</p>
+          </div>
+          <div class="toolbar-actions">
+            <label>
+              Search
+              <input id="search" type="text" placeholder="Search title or description" />
+            </label>
+            <label>
+              Category
+              <select id="filterCategory">
+                <option value="all">All</option>
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="Urgent">Urgent</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+            <label>
+              Sort by
+              <select id="sortPriority">
+                <option value="none">None</option>
+                <option value="high">High → Low</option>
+                <option value="low">Low → High</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div id="notificationBar" class="notification-bar" aria-live="polite"></div>
+        <div id="taskList" class="task-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
